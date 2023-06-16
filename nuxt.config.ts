@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   runtimeConfig: {
     foodFinderApiKey: '',
-    googleMapsApiKey: ''
+    googleMapsApiKey: '',
   },
   css: [
     '@/assets/css/main.css',

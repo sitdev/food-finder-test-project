@@ -9,7 +9,7 @@ provides additional address search capabilities by pairing with the Google Maps 
 This route accepts a `query` parameter that contains a full address search query.
 - Convert the address search query into geo-coordinate bounds using the Google Maps Geocode API, 
 then use those bounds in the Food Finder API's coordinate parameters (`min_lat`, `max_lat`, `min_lon`, `max_lon`).
-- In the JSON response from the route, include both the geocoding details of the address search 
+- In the JSON response from the route, include both the geocoding data from the address search 
 and the list of matching Food Finder locations:
   - Convert the geocoding data into a simpler and more user-friendly structure.
   - Simplify the location data by removing properties that don't seem useful.
@@ -39,6 +39,14 @@ API keys are included in the provided `.env` file and can be accessed in the app
 const { foodFinderApiKey, googleMapsApiKey } = useRuntimeConfig()
 ```
 
+Use the global `$fetch` function to fetch external URLs within server routes:
+
+```javascript
+const response = await $fetch('https://maps.googleapis.com/maps/api/geocode/json')
+```
+
+[$fetch Documentation](https://nuxt.com/docs/api/utils/dollarfetch)
+
 ## Setup
 
 ```bash
@@ -54,5 +62,8 @@ Start the development server on `http://localhost:3000`:
 ```bash
 yarn dev
 ```
+
+A minimal front end is provided to aid in testing responses from `/api/food-finder`.
+
 
 [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction)
